@@ -6,7 +6,6 @@ function BookCreate({ onCreate }) {
     const [title, setTitle] = useState('');
 
     const handleChange = (event) => {
-        console.log(event)
         setTitle(event.target.value);
     };
 

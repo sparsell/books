@@ -6,7 +6,11 @@ function App() {
     const [books, setBooks] = useState([]);
 
     const createBook = (title) => {
-        console.log("new book:", title)
+        const updatedBooks = [
+            ...books, { id: 123, title }
+        ]
+        setBooks(updatedBooks);
+        console.log(books)
     };
 
     const editBook = () => {
@@ -19,6 +23,7 @@ function App() {
 
 return (
     <div>
+        {books.length}
         <BookCreate onCreate={createBook}/>
     </div>
     );

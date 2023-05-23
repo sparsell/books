@@ -1,18 +1,36 @@
+import { useState } from 'react';
+import BookEdit from './BookEdit';
 
+function BookShow({ book, onDelete, onEdit }) {
 
-function BookShow({ book, onDelete }) {
+    const [ showEdit, setShowEdit ] = useState(false);
 
-    const handleClick = () => {
-        onDelete(book.id);
+    const handleEditClick = () => {
+        setShowEdit(!showEdit);
+    };
+
+    const handleSubmit = (id, newTitle) => {
+        setShowEdit(false);
+        onEdit(id, newTitle);
     }
+
+    const handleDeleteClick = () => {
+        onDelete(book.id);
+    };
+
+    let content = <h3>{book.title}</h3>
+    if (showEdit) {
+        content = <BookEdit book={book} onSubmit={handleSubmit}/>;
+    };
 
     return (
         <div className='book-show'>
-          {book.title}
+          <div>{content}</div>
           <div className='actions'>
-            <button className="delete" onClick={handleClick}></button>
+            <button className='edit' onClick={handleEditClick}></button>
+            <button className="delete" onClick={handleDeleteClick}></button>
           </div>
-            </div>
+        </div>
     );
 };
 

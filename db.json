@@ -1,4 +1,12 @@
 {
-    "books": [
-    ]
+  "books": [
+    {
+      "title": "Anne Frank",
+      "id": 10
+    },
+    {
+      "title": "Dominion",
+      "id": 11
+    }
+  ]
 }

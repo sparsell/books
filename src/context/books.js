@@ -44,7 +44,6 @@ function Provider({ children }) {
             return book.id !== id;
         });
         setBooks(updatedBooks);
-        console.log(books);
     };
 
     const valueToShare = {	
